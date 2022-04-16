@@ -39,10 +39,10 @@ public class ClientService {
      }
     clientRepository.deleteById(clientId);
     }
-     //@Transactional
-   /* public void updateClient(Long clientId, String first_name, String last_name, String email, String gender) {
-    Client client = clientRepository.findById(clientId).orElse(Throw(()->new IllegalStateException("client with id"+ clientId
-    + "does not exist")));
+    @Transactional
+    public void updateClient(Long clientId, String first_name, String last_name, String email, String gender) {
+    Client client = clientRepository.findById(clientId).orElseThrow(()->new IllegalStateException("client with id"+ clientId
+    + "does not exist"));
 
     if ( first_name != null && first_name.length()>0 && !Objects.equals(client.getFirst_name(),first_name)){
         client.setFirst_name(first_name);
@@ -63,9 +63,8 @@ public class ClientService {
          if ( gender != null && gender.length()>0 && !Objects.equals(client.getGender(),gender)){
 
              client.setGender(gender);
-        } }*/
+        } }
 
     }
-    // System.out.println(client);
 
 
